@@ -1,0 +1,39 @@
+<!-- templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </nav>
+        <h1>Welcome to Your Dashboard!</h1>
+    </header>
+    <main>
+        <div class="welcome-message" id="welcomeMessage">Welcome back, {{ username }}!</div>
+        <section>
+            <h2>Your Destinations</h2>
+            <ul>
+                <li><a href="{{ url_for('destination', destination_id='paris') }}">Paris, France</a></li>
+                <li><a href="{{ url_for('destination', destination_id='tokyo') }}">Tokyo, Japan</a></li>
+                <li><a href="{{ url_for('destination', destination_id='new_york') }}">New York City, USA</a></li>
+                <li><a href="{{ url_for('destination', destination_id='rome') }}">Rome, Italy</a></li>
+                <li><a href="{{ url_for('destination', destination_id='sydney') }}">Sydney, Australia</a></li>
+            </ul>
+        </section>
+    </main>
+    <script>
+        // Show the welcome message with animation
+        window.onload = function() {
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            welcomeMessage.classList.add('show');
+        };
+    </script>
+</body>
+</html>

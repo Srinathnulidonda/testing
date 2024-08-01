@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Finder - Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" defer></script>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: { lat: -34.397, lng: 150.644 },
+            });
+
+            {% for accommodation in accommodations %}
+            const marker = new google.maps.Marker({
+                position: { lat: {{ accommodation.latitude }}, lng: {{ accommodation.longitude }} },
+                map: map,
+                title: "{{ accommodation.name }}"
+            });
+            {% endfor %}
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('search') }}">Dashboard</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Accommodation Finder</h2>
+        <div class="container">
+            <div class="list">
+                {% for accommodation in accommodations %}
+                <div class="accommodation-item">
+                    <img src="{{ url_for('static', filename='images/' ~ accommodation.image) }}" alt="{{ accommodation.name }}" class="destination-photo">
+                    <h3>{{ accommodation.name }}</h3>
+                    <p>{{ accommodation.description }}</p>
+                    <p><strong>Price:</strong> {{ accommodation.price }}</p>
+                </div>
+                {% endfor %}
+            </div>
+            <div id="map"></div>
+        </div>
+    </main>
+</body>
+</html>

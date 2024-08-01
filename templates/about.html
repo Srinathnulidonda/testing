@@ -1,0 +1,33 @@
+<!-- templates/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="home">
+            <nav>
+                <a href="{{ url_for('index') }}"> Home</a>
+                <a href="{{ url_for('search') }}">Search</a>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('about') }}" class="about-link">About Us</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1 class="fade-in">About Travel Planner</h1>
+        <div class="about-content">
+            <img src="{{ url_for('static', filename='images/travelphoto.jpg') }}" alt="About Us" class="about-image">
+            <div class="about-text">
+                <p>Travel Planner is a comprehensive platform designed to help travelers plan their dream vacations with ease. Our mission is to provide a seamless and enjoyable experience for anyone looking to explore new destinations.</p>
+                <p>Founded in 2024, Travel Planner has grown to become a trusted resource for millions of travelers worldwide. Our team of passionate travel enthusiasts is dedicated to curating the best travel information, tips, and recommendations to help you make the most of your adventures.</p>
+                <p>We believe that travel has the power to broaden horizons, create unforgettable memories, and bring people together. That's why we're committed to making travel planning accessible and enjoyable for everyone.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

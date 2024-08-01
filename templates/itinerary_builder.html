@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary Builder - Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Itinerary Builder</h2>
+        <div>
+            <!-- Drag-and-drop interface for planning daily activities -->
+            <p>Drag and drop activities to plan your daily itinerary.</p>
+            <!-- Timeline view and running cost calculator can be added here -->
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!-- templates/destination_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ destination.name }} - Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="home">
+            <nav>
+                <a href="{{ url_for('index') }}"> Home</a>
+                <a href="{{ url_for('search') }}">Search</a>
+                <a href="{{ url_for('about') }}" class="about-link">About Us</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1 class="fade-in">{{ destination.name }}</h1>
+        <div class="destination-details">
+            <img src="{{ url_for('static', filename='images/' + destination_id + '.jpg') }}" alt="{{ destination.name }}" class="destination-image">
+            <div class="details-container">
+                <h2>Tourist Spots</h2>
+                <ul class="details-list">
+                    {% for spot in destination.tourist_spots %}
+                        <li>{{ spot }}</li>
+                    {% endfor %}
+                </ul>
+                <h2>Local Attractions</h2>
+                <ul class="details-list">
+                    {% for attraction in destination.local_attractions %}
+                        <li>{{ attraction }}</li>
+                    {% endfor %}
+                </ul>
+                <h2>Climate</h2>
+                <p class="details-text">{{ destination.climate }}</p>
+                <h2>Best Travel Times</h2>
+                <p class="details-text">{{ destination.best_travel_times }}</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

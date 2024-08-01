@@ -1,0 +1,58 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="home">
+            <nav>
+                <a href="{{ url_for('index') }}"> Home</a>
+                <a href="{{ url_for('search') }}">Search</a>
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('about') }}" class="about-link">About Us</a>
+                <a href="{{ url_for('login') }}" class="about-link">Login </a>
+                <a href="{{ url_for('accommodation_finder') }}" class="about-link">accommodation</a>
+                
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1 class="fade-in">Welcome to Travel Planner</h1>
+        <form action="{{ url_for('search') }}" method="get" class="search-form">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" name="query" placeholder="Enter a destination" class="search-input">
+                <button type="submit" class="search-button">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </form>
+
+        <div class="image-gallery">
+            <h2>Explore Our Destinations</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='images/tokyo.jpg') }}" alt="Tokyo, Japan" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='images/paris.jpg') }}" alt="Paris, France" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='images/new_york.jpg') }}" alt="New York, USA" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='images/sydney.jpg') }}" alt="Sydney, Australia" class="gallery-image">
+                </div>
+                <div class="gallery-item">
+                    <img src="{{ url_for('static', filename='images/rome.jpg') }}" alt="rome" class="gallery-image">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

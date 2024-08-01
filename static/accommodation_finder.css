@@ -1,0 +1,48 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 1em;
+    text-align: center;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.list {
+    flex: 1;
+    min-width: 300px;
+}
+
+#accommodation-item {
+    margin-bottom: 20px;
+}
+
+.destination-photo {
+    width: 300px;
+    height: auto;
+}
+
+#map {
+    flex: 2;
+    height: 500px;
+    min-width: 300px;
+    margin-left: 20px;
+}

@@ -1,0 +1,38 @@
+<!-- templates/search_results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Travel Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="home">
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('dashboard') }}">dashboard</a>
+                <a href="{{ url_for('about') }}" class="about-link">About Us</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1 class="fade-in">Search Results</h1>
+        {% if destinations %}
+            <ul class="destination-list">
+                {% for destination_id, destination in destinations.items() %}
+                    <li class="destination-item">
+                        <a href="{{ url_for('destination', destination_id=destination_id) }}">
+                            <h2>{{ destination.name }}</h2>
+                            <img src="{{ url_for('static', filename='images/' + destination_id + '.jpg') }}" alt="{{ destination.name }}" width="300" height="300" class="destination-image">
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No destinations found.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
